@@ -35,7 +35,7 @@ public:
   CDnsSeedOpts() : nThreads(96), nDnsThreads(4), nPort(53), mbox(NULL), ns(NULL), host(NULL), tor(NULL), fDaemon(false), fUseTestNet(false), fWipeBan(false), fWipeIgnore(false), ipv4_proxy(NULL), ipv6_proxy(NULL) {}
 
   void ParseCommandLine(int argc, char **argv) {
-    static const char *help = "BlackCoin-seeder\n"
+    static const char *help = "SwagBucks-seeder\n"
                               "Usage: %s -h <host> -n <ns> [-m <mbox>] [-t <threads>] [-p <port>]\n"
                               "\n"
                               "Options:\n"
@@ -357,14 +357,14 @@ extern "C" void* ThreadStats(void*) {
   } while(1);
 }
 
-static const string mainnet_seeds[] = {"seed.blackcoin.co", "bcseed.syllabear.us.to", ""};
+static const string mainnet_seeds[] = {"seed.swagsociety.me", "", ""};
 static const string testnet_seeds[] = {""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
   if (!fTestNet){
-    db.Add(CService("198.52.200.75", 15714, false), true);
-    db.Add(CService("2001:41d0:2:7438::1", 15714, false), true);
+    db.Add(CService("108.61.165.209", 1337, false), true);
+    db.Add(CService("2001:19f0:300:1704::6", 1337, false), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {
